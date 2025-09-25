@@ -56,7 +56,7 @@ RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max
 # Verifikasi Hash
 RUN python3 /ComfyUI/verify_model_hashes.py \
     --models-dir /ComfyUI/models \
-    --hash-file /ComfyUI/valid_hash.txt
+    --hash-file /ComfyUI/valid_hash.txt \
     --ignore-missing
 
 # Set the entry point for the container & RUN!
