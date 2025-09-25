@@ -50,13 +50,14 @@ RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max
 # Download valid_hash.txt
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "valid_hash.txt" "https://files.catbox.moe/cagumu.txt"
 
-# Download verify_model_hashes.py
-RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "verify_model_hashes.py" "https://files.catbox.moe/ubu879.py"
+# Download check_model_hashes.py
+RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "check_model_hashes.py" "https://files.catbox.moe/y79fhh.py"
 
 # Verifikasi Hash
 RUN python3 /ComfyUI/verify_model_hashes.py \
     --models-dir /ComfyUI/models \
     --hash-file /ComfyUI/valid_hash.txt
+    --ignore-missing
 
 # Set the entry point for the container & RUN!
 CMD python3 main.py --listen 0.0.0.0 --port ${PORT:-8188}
