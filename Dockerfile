@@ -27,7 +27,8 @@ RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git /ComfyUI/custom_no
 # Input Files
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/input" -o "Iuno Lynn ai.png" "https://files.catbox.moe/iz68n8.png" && \
     aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/input" -o "seed.png" "https://files.catbox.moe/eh66lk.png" && \
-    aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/input" -o "Waguri Kaoruko.png" "https://files.catbox.moe/fio2hl.png"
+    aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/input" -o "Waguri Kaoruko.png" "https://files.catbox.moe/fio2hl.png" && \
+    aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/input" -o "mba-mba warteg.png" "https://files.catbox.moe/7lq11i.png"
 
 # Workflows Files
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/user/default/workflows" -o "video_wan2_2_14B_i2v.json" "https://files.catbox.moe/1fmg1u.json" && \
