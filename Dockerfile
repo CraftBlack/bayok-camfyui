@@ -47,5 +47,16 @@ RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/models/vae" -o "wan_2.1_vae.safetensors" "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors?download=true" && \
     aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/models/text_encoders" -o "umt5_xxl_fp8_e4m3fn_scaled.safetensors" "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors?download=true"
 
-# Set the entry point for the container
+# Download valid_hash.txt
+RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "valid_hash.txt" "https://files.catbox.moe/cagumu.txt"
+
+# Download verify_model_hashes.py
+RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "verify_model_hashes.py" "https://files.catbox.moe/xf9rwd.py"
+
+# Verifikasi Hash
+RUN python3 verify_model_hashes.py \
+    --models-dir /ComfyUI/models \
+    --hash-file /valid_hash.txt
+
+# Set the entry point for the container & RUN!
 CMD python3 main.py --listen 0.0.0.0 --port ${PORT:-8188}
