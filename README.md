@@ -1,1 +1,1 @@
-https://app.koyeb.com/deploy?name=example-comfyui&type=git&repository=koyeb%2Fexample-comfyui&branch=main&builder=dockerfile&instance_type=gpu-nvidia-rtx-4000-sff-ada&env%5B%5D=&ports=8000%3Bhttp%3B%2F
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=bayok-camfyui&type=git&repository=CraftBlack%2Fbayok-camfyui&branch=main&builder=dockerfile&instance_type=gpu-nvidia-rtx-4000-sff-ada&regions=eu&instances_min=0&autoscaling_sleep_idle_delay=300)
