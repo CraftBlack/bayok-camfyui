@@ -32,7 +32,8 @@ RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max
 
 # Workflows Files
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/user/default/workflows" -o "video_wan2_2_14B_i2v.json" "https://files.catbox.moe/1fmg1u.json" && \
-    aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/user/default/workflows" -o "11_wan2.2-seeeeeeee.json" "https://files.catbox.moe/uhdgub.json"
+    aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/user/default/workflows" -o "11_wan2.2-seeeeeeee.json" "https://files.catbox.moe/uhdgub.json" && \
+    aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -d "/ComfyUI/user/default/workflows" -o "WAN 2.2_putih.json" "https://files.catbox.moe/fx3pvj.json"
 
 # Download Model Lora
 RUN curl -L -H "Authorization: Bearer c892d0db3d52265e969a31dc6bc57e28" "https://civitai.com/api/download/models/2073605?type=Model&format=SafeTensor" -o "/ComfyUI/models/loras/NSFW-22-H-e8.safetensors" && \
@@ -52,7 +53,7 @@ RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "valid_hash.txt" "https://files.catbox.moe/cagumu.txt"
 
 # Download check_model_hashes.py
-RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "check_model_hashes.py" "https://files.catbox.moe/y79fhh.py"
+RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "check_model_hashes.py" "https://files.catbox.moe/447bzy.py"
 
 # Verifikasi Hash
 RUN python3 /ComfyUI/check_model_hashes.py \
