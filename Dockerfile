@@ -54,7 +54,7 @@ RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max
 RUN aria2c --console-log-level=warn --allow-overwrite=true --continue=true --max-connection-per-server=8 --split=8 --min-split-size=1M -o "verify_model_hashes.py" "https://files.catbox.moe/xf9rwd.py"
 
 # Verifikasi Hash
-RUN python3 /ComfyUI/scripts/verify_model_hashes.py \
+RUN python3 /ComfyUI/verify_model_hashes.py \
     --models-dir /ComfyUI/models \
     --hash-file /ComfyUI/valid_hash.txt
 
