@@ -8,6 +8,10 @@ RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/clou
 RUN chmod +x /usr/local/bin/cloudflared
 RUN cloudflared --version
 RUN mkdir /my_jupyter
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git /my_jupyter/ComfyUI
+RUN git clone https://github.com/Comfy-Org/ComfyUI-Manager.git /my_jupyter/ComfyUI/custom_nodes/ComfyUI-Manager
+RUN wget -O /my_jupyter/download_models.py https://files.catbox.moe/ynzshb.py
+RUN wget -O /my_jupyter/CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
 RUN pip install notebook
 RUN jupyter --version
 RUN mkdir /root/.jupyter/
@@ -15,4 +19,4 @@ RUN echo "c.ServerApp.allow_origin = '*'" >> /root/.jupyter/jupyter_notebook_con
 RUN echo "c.ServerApp.disable_check_xsrf = True" >> /root/.jupyter/jupyter_notebook_config.py
 RUN echo "c.FileContentsManager.delete_to_trash = False" >> /root/.jupyter/jupyter_notebook_config.py
 
-CMD jupyter notebook --no-browser --port ${PORT:-8888} --ip=0.0.0.0 --allow-root & cloudflared tunnel --url http://localhost:8888 & cloudflared tunnel --url http://localhost:8188 & python download_models.py
+CMD jupyter notebook --no-browser --port ${PORT:-8888} --ip=0.0.0.0 --allow-root & echo "cloudflared tunnel --url http://localhost:8188" & echo "python download_models.py"
