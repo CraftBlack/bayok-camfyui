@@ -19,4 +19,4 @@ RUN echo "c.ServerApp.allow_origin = '*'" >> /root/.jupyter/jupyter_notebook_con
 RUN echo "c.ServerApp.disable_check_xsrf = True" >> /root/.jupyter/jupyter_notebook_config.py
 RUN echo "c.FileContentsManager.delete_to_trash = False" >> /root/.jupyter/jupyter_notebook_config.py
 
-CMD jupyter --version & jupyter notebook --no-browser --port ${PORT:-8888} --ip=0.0.0.0 --allow-root & echo "cloudflared tunnel --url http://localhost:8188" & echo "python download_models.py"
+CMD jupyter --version & jupyter notebook --no-browser --port ${PORT:-8888} --ip=0.0.0.0 --allow-root
