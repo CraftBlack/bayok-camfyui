@@ -7,10 +7,12 @@ RUN python --version
 RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared
 RUN chmod +x /usr/local/bin/cloudflared
 RUN cloudflared --version
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git /ComfyUI
-RUN git clone https://github.com/Comfy-Org/ComfyUI-Manager.git /ComfyUI/custom_nodes/ComfyUI-Manager
-RUN pip install -r /ComfyUI/requirements.txt
-RUN wget -O download_models.py https://files.catbox.moe/xo87ph.py
-RUN wget -O CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
+RUN mkdir /my_jupyter
+RUN pip install notebook
+RUN jupyter --version
+RUN mkdir /root/.jupyter/
+RUN echo "c.ServerApp.allow_origin = '*'" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.ServerApp.disable_check_xsrf = True" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.FileContentsManager.delete_to_trash = False" >> /root/.jupyter/jupyter_notebook_config.py
 
-CMD python /ComfyUI/main.py --listen 0.0.0.0 --port ${PORT:-8188} & cloudflared tunnel --url http://localhost:8188 & python download_models.py
+CMD jupyter notebook --no-browser --port ${PORT:-8888} --ip=0.0.0.0 --allow-root & cloudflared tunnel --url http://localhost:8888 & cloudflared tunnel --url http://localhost:8188 & python download_models.py
