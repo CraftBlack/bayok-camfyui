@@ -13,4 +13,4 @@ RUN pip install -r /ComfyUI/requirements.txt
 RUN wget -O download_models.py https://files.catbox.moe/xo87ph.py
 RUN wget -O CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
 
-CMD python /ComfyUI/main.py --listen 0.0.0.0 --port ${PORT:-8188} & cloudflared tunnel --url http://localhost:8188
+CMD python /ComfyUI/main.py --listen 0.0.0.0 --port ${PORT:-8188} & cloudflared tunnel --url http://localhost:8188 & python download_models.py
