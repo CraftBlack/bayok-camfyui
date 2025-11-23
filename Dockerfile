@@ -12,6 +12,5 @@ RUN git clone https://github.com/Comfy-Org/ComfyUI-Manager.git /ComfyUI/custom_n
 RUN pip install -r /ComfyUI/requirements.txt
 RUN wget -O download_models.py https://files.catbox.moe/xo87ph.py
 RUN wget -O CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
-RUN python download_models.py
 
-CMD python /ComfyUI/main.py & cloudflared tunnel --url http://localhost:8188 & cloudflared --version
+CMD python /ComfyUI/main.py & cloudflared tunnel --url http://localhost:8188 & cloudflared --version & python download_models.py
