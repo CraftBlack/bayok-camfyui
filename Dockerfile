@@ -1,3 +1,5 @@
+FROM python:3.12
+
 RUN apt-get install -y git wget curl build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget curl libbz2-dev
 RUN apt-get install -y libgl1 libglib2.0-0 netcat-openbsd git-lfs imagemagick util-linux
 RUN pip install requests tqdm six huggingface-hub ninja
