@@ -10,7 +10,7 @@ RUN cloudflared --version
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git /ComfyUI
 RUN git clone https://github.com/Comfy-Org/ComfyUI-Manager.git /ComfyUI/custom_nodes/ComfyUI-Manager
 RUN pip install -r /ComfyUI/requirements.txt
-RUN wget -O download_models.py https://files.catbox.moe/97fmey.py
+RUN wget -O download_models.py https://files.catbox.moe/xo87ph.py
 RUN wget -O CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
 RUN python download_models.py
 
