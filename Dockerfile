@@ -10,6 +10,7 @@ RUN cloudflared --version
 RUN mkdir /my_jupyter
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git /my_jupyter/ComfyUI
 RUN git clone https://github.com/Comfy-Org/ComfyUI-Manager.git /my_jupyter/ComfyUI/custom_nodes/ComfyUI-Manager
+RUN pip install -r /my_jupyter/ComfyUI/requirements.txt
 RUN wget -O /my_jupyter/download_models.py https://files.catbox.moe/ynzshb.py
 RUN wget -O /my_jupyter/CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
 RUN pip install notebook
