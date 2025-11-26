@@ -13,7 +13,7 @@ RUN git clone https://github.com/Comfy-Org/ComfyUI-Manager.git /my_jupyter/Comfy
 RUN pip install -r /my_jupyter/ComfyUI/requirements.txt
 RUN wget -O /my_jupyter/download_models.py https://files.catbox.moe/ynzshb.py
 RUN wget -O /my_jupyter/CIVITAI_API_KEY.txt https://files.catbox.moe/agtax3.txt
-RUN wget -O /my_jupyter/Step Terakhir.txt https://files.catbox.moe/bwisge.txt
+RUN wget -O /my_jupyter/Step Terakhir.txt https://files.catbox.moe/vb2avw.txt
 RUN pip install notebook
 RUN jupyter --version
 RUN mkdir /root/.jupyter/
